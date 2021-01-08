@@ -12,6 +12,7 @@
     // To the power of ...
     echo pow(2, 7) . '<br>';
 
+    // random number
     echo rand(1, 100) . '<br>';
 
     echo sqrt(256) . '<br>';
@@ -23,6 +24,7 @@
     echo round(36.1) . '<br>';
 
     ?>
+
 </body>
 
 </html>

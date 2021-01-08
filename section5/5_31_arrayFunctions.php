@@ -16,9 +16,13 @@
 
     echo min($list) . '<br>';
 
-    echo sort($list);
+    $sortedArray = sort($list) . '<br>';
 
-    print_r($list);
+    echo $sortedArray . '<br>';
+
+    echo $list . '<br>';
+
+    print_r($list) . '<br>';
 
     ?>
 

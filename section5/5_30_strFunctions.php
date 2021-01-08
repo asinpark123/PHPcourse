@@ -7,23 +7,33 @@
     <title>String Functions</title>
 </head>
 
-<body>
+    <body>
 
-    <?php
+        <?php
 
-    $string = 'Hello, do you like the class?';
+        $string = 'Hello, do you like the class?';
 
-    echo strlen($string) . "<br>";
+        echo strlen($string) . "<br>";
 
-    echo strtoupper($string) . "<br>";
+        echo strtoupper($string) . "<br>";
 
-    echo strtolower($string) . "<br>";
+        echo strtolower($string) . "<br>";
 
-    echo print ($string) . "<br>";
+        // just like echo 
+        // The major differences to echo are that print only accepts a single argument and always returns 1.
+        
+        print ($string) . "<br>";
+        echo print ($string) . "<br>";
+        echo "<br>";
 
-    ?>
+        // Output a formatted string, returns the length of the outputted string.
+
+        printf ($string);
+    
+
+        ?>
 
 
-</body>
+    </body>
 
 </html>
