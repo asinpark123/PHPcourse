@@ -22,6 +22,8 @@
     // Associative array
     $names = array("first_name" => 'AhShin', 'last_name' => 'Park');
 
+    // $anArray = array("first Key" => "first value", "Second Key" => "Second Value",...)
+
     print_r($names);
     echo '<br>';
     echo $names['first_name'] . ' ' . $names['last_name'];

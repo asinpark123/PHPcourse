@@ -14,10 +14,11 @@
     echo $number . "<BR>";
 
     // Define a constant
-    define("NAME", 1000);
+    define("NAME", "Ah Shin Park");
 
     echo NAME . '<br>';
 
+    // Another way to define constant
     const ANIMALS = array('dog', 'cat', 'bird');
 
     foreach (ANIMALS as $item) {

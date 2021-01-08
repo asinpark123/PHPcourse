@@ -13,7 +13,7 @@
 
     $numbers = array(334, 453, 453, 234, 645, 4633, 5434);
     foreach ($numbers as $i) {
-        echo $i . "<br><br>";
+        echo $i . " checked" . "<br><br>";
     }
     ?>
 
