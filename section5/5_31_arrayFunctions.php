@@ -12,16 +12,24 @@
     <?php
     $list = [343, 423, 4234, 324, 362, 346, 34];
 
-    echo max($list) . '<br>';
-
-    echo min($list) . '<br>';
-
-    $sortedArray = sort($list) . '<br>';
-
-    echo $sortedArray . '<br>';
-
     echo $list . '<br>';
+    
+    print_r($list) . '<br>';
 
+    echo '<br>';
+    
+    echo max($list) . '<br>';
+    
+    echo min($list) . '<br>';
+    
+    echo '<br>';
+    
+    $sortedArray = sort($list);
+    
+    echo "sortedArray: " . $sortedArray . '<br>';
+
+    echo "sortedArray: " . $list . '<br>';
+    
     print_r($list) . '<br>';
 
     ?>
