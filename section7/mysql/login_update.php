@@ -1,37 +1,23 @@
-<?php include "db.php";
-
-// We have put the below connection fn and connection-check into a separate file: db.php
-
-// $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-// if($connection){
-//     echo 'We have connection';
-//     echo '<br>';
-// } else{
-//     echo "We don't have connection";
-//     echo '<br>';
-// }
-
-// We will recall contents of the db.php using 'include "db.php";'
+<?php include 'functions.php';?>
+<?php include 'db.php';?>
 
 
-// Queries
-    $query = 'SELECT * FROM users';
+<?php
 
-    // Sending Query to fetch
-    $result = mysqli_fetch_assoc($connection, $query);
-    if(!$result){
-        die("Query FAILED" . mysqli_error($result));
-        echo '<br>';
-    }
-    else{
-        echo 'Values fetched from the database';
-        echo '<br>';
-    }
+if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $id = $_POST['id'];
+
+    $query = "UPDATE users SET ";
+    $query .= "username = '$username' ";
+    $query .= "password = '$password' ";
+    $query .= "WHERE id = $id";
+    // no quote marks around $id because it's an INTeger
+
+}
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,50 +25,39 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-              crossorigin="anonymous">
-
-        <title>Login Page - Update (part 4)</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Login - part 4</title>
     </head>
 
     <body>
-        <h2>Login Page - Update (part 4)</h2>
+
         <div class="container">
             <div class="col-sm-6">
-                <form action="login_create.php" method="POST">
+                <form class="form-control" action="login_update.php" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
-                    <br>
-
-                    <!-- This part is crucial to pick row ID from tables -->
                     <div class="form-group">
                         <select name="id" id="">
+                            <option value="">id</option>
 
                             <?php
-                        
-                            // Using the data fetched from DB
-                            while($row = mysqli_fetch_assoc($result)){
-                                // store the row ID by searching key 'id' from the associative array $row
-                                $id = $row['id'];
 
-                                // we can now use the fetched ID number in $id to dynamically change that specific row fetched
-                                echo "<option value='$id'>$id</option>";
-                            }
+                            showCred();
 
                             ?>
+
+
                         </select>
-
                     </div>
-                    <input type="submit" class="btn btn-primary" name="submit" value="UPDATE">
 
+                    <input class="btn btn-primary" type="submit" name="submit" value="Update">
                 </form>
             </div>
         </div>

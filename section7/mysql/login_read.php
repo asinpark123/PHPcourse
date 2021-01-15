@@ -1,35 +1,24 @@
 <?php
 
-// receiving information from the submitted forms
+    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
 
-$connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
-// Checking connection
-if($connection){
-    echo 'We have connection';
-    echo '<br>';
-}
-else{
-    echo "We don't have connection";
-    echo '<br>';
-}
-
-// QUERIES
-$query = "SELECT * FROM users";
-
-// Sending query to fetch
-$result = mysqli_query($connection, $query);
-
-    if(!$result){
-        die('Query FAILED' . mysqli_error($result));
-        echo '<br>';
+    if(!$connection){
+        echo 'No connection!';
     }
     else{
-        echo 'Values fetched from the database';
-        echo '<br>';
-    }
-?>
+        echo "we're connected" . "<br>";
 
+        $query = "SELECT * FROM users ";
+    
+        $queryResult = mysqli_query($connection, $query);
+        
+        if(!$queryResult){
+            die('Query FAILED' . mysqli_error($queryResult));
+        }
+    }
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,51 +26,31 @@ $result = mysqli_query($connection, $query);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page - Read (part 3)</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Login - part 3</title>
     </head>
 
     <body>
-        <h2>Login Page - Read (part 3)</h2>
 
         <div class="container">
             <div class="col-sm-6">
                 <?php
 
-                // We want to fetch whatever we have just put into $result using WHILE loop
-                // mysqli_fetch_row(mysqli_query($connection, $query))
-                
-                // while($row = mysqli_fetch_row($result)){
+                // while($row = mysqli_fetch_row($queryResult)){
                 //     print_r($row);
                 // }
 
+                while($row = mysqli_fetch_assoc($queryResult)){
 
-                // mysqli_fetch_assoc(mysqli_query($connection, $query)) - returns an associative array
-                
-                // while($row = mysqli_fetch_assoc($result)){
-                //     print_r($row);
-                // }
-                
-                // This is the best way to present the returned values, using <pre></pre>
-                while($row = mysqli_fetch_assoc($result)){
                     ?>
-
                 <pre>
-
-                    <?php
-
-                    print_r($row);
-                    echo '<br>';
-                    ?>
-
-                </pre>
-
-
                 <?php
-                
-                }
-
+                print_r($row);
                 ?>
-
+            </pre>
+                <?php
+                }
+                ?>
 
 
             </div>

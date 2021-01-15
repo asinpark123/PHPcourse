@@ -3,8 +3,16 @@
 // innitial value of $_POST is 'Array'
 // isset checks if the parameter matches the value of the associative-array-turned super variable $_POST
 
-if(isset($_POST['Array'])){
-    echo '<h3 style="color: black;">Username must be between ' . $minCharID . ' and ' . $maxCharID . ' characters long</h3>';
+if(!$_POST||isset($_POST['return'])){
+    echo '<h1>Form validation</h1>
+    <form action="6_36_externalPageSubmission.php" method="POST">
+    <input type="text" placeholder="Username" name="username">
+    <input type="password" placeholder="Password" name="password">
+    <br>
+    <br>
+
+    <input type="submit" name="submit">
+    </form>';
     echo '<br>';
 }
 
@@ -67,31 +75,35 @@ elseif(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form validation</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form validation</title>
+    </head>
 
-<body>
-    <h1>Form validation</h1>
+    <body>
 
-    <!-- we created a new form in the next class and therefore have changed the action link -->
+        <!-- we created a new form in the next class and therefore have changed the action link -->
 
-    <!-- <form action="6_35_validatingFormValues.php" method="POST"> -->
-    
-    <form action="6_36_externalPageSubmission.php" method="POST">
-        <input type="text" placeholder="Username" name="username">
-        <input type="password" placeholder="Password" name="password">
-        <br>
-        <br>
+        <!-- <form action="6_35_validatingFormValues.php" method="POST"> -->
+
+        <!-- shifted up to only appear innitially -->
+
+        <!-- 
+            <h1>Form validation</h1>
+            <form action="6_36_externalPageSubmission.php" method="POST">
+            <input type="text" placeholder="Username" name="username">
+            <input type="password" placeholder="Password" name="password">
+            <br>
+            <br>
+
+            <input type="submit" name="submit">
+        </form> -->
+
         <!-- When you click on submit all the information inside the form tag will be sent under the set name.
-        name is stored inside the super variable $_POST -->
-
-        <input type="submit" name="submit">
-    </form>
+    name is stored inside the super variable $_POST -->
 
 
-</body>
+    </body>
 
 </html>

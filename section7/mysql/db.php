@@ -1,22 +1,7 @@
 <?php
-
-
-$connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-    // if($connection){
-    //     echo 'Connected';
-    //     echo '<br><br>';
-    // }
-    // else{
-    //     echo 'No connection';
-    // }
+    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
 
     if(!$connection){
-        echo 'Not connected';
-        echo '<br><br>';
+        echo 'No connection!';
     }
-
-
-    // Saving connection and connection-check into separate files require us to use 'include "db.php";' 
-    // before the Queries to establish connection to the DB using this file
-
-    // receiving information from the submitted forms 
+?>

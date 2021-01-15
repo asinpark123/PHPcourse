@@ -2,12 +2,7 @@
 
 // All HTML has been deleted from this file, since it's just a validation page apparently 
 
-if(isset($_POST['Array'])){
-    echo '<h3 style="color: black;">Username must be between ' . $minCharID . ' and ' . $maxCharID . ' characters long</h3>';
-    echo '<br>';
-}
-
-elseif(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
     $names = array('AhShin', 'student','Peter', 'Samid', 'Parker', 'Tim', 'Ome', 'Christina', 'staff');
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -37,18 +32,20 @@ elseif(isset($_POST['submit'])){
             echo '<h3 style="color: red;">Password is too long<br>Password must be between ' . $minCharPW . ' and ' . $maxCharPW . ' characters long</h3>';
             echo '<br>';
         }
-        
-
-        if(!in_array($username,$names)){
-            echo 'Hello user ' . $username;
-            echo '<br>';
+        else{
+            if(!in_array($username,$names)){
+                echo 'Hello private user ' . $username . '<br>';
+                echo '        <form action="6_35_validatingFormValues.php" method="POST">
+                <input type="submit" value="Return Home" name="return">
+                </form>';
+                echo '<br>';
+            }
+            elseif(in_array($username,$names)){
+                echo 'Hello special user <i>' . $username . '</i>';
+                echo '<br>';
+                
+            }
         }
-        elseif(in_array($username,$names)){
-            echo 'Hello special user ' . $username;
-            echo '<br>';
-            
-        }
-
     }
     
     elseif(isset($_POST[null])){
