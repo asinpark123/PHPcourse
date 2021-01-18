@@ -21,15 +21,23 @@
 
  */
 
- $emailAddr = $_POST['email'];
 
 
- if(isset($_POST['Array'])){
-	 echo '';
- }
- elseif(isset($_POST['submit'])){
+if(!$_POST||isset($_POST['return'])){
+    echo '<h1>Form Exercise</h1>
+    <form action="6.php" method="POST">
+    <input type="email" name="email" placeholder="Type in your email address">
+    <input type="submit" name="submit">
+    </form>';
+}
+elseif(isset($_POST['submit'])){
+    $emailAddr = $_POST['email'];
 	if($emailAddr){
-		echo 'Your email has been confirmed as: ' . $emailAddr;
+        echo 'Your email has been confirmed as: ' . $emailAddr;
+        echo "<br>";
+        echo '<form action="6.php" method="POST">
+        <input type="submit" name="return" value="Return">
+        </form>';
 	}
 	else{
 		echo 'Please type in your email address correctly';
@@ -52,11 +60,7 @@
             </head>
 
             <body>
-                <h1>Form Exercise</h1>
-                <form action="6.php" method="POST">
-                    <input type="email" name="email" placeholder="Type in your email address">
-                    <input type="submit" name="submit">
-                </form>
+
 
             </body>
 

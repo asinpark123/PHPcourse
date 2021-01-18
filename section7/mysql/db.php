@@ -1,7 +1,6 @@
 <?php
     $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
     if(!$connection){
-        echo 'No connection!';
+        die('Connection FAILED' . mysqli_error($connection));
     }
 ?>

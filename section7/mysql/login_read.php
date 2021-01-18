@@ -1,24 +1,5 @@
-<?php
-
-    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
-    if(!$connection){
-        echo 'No connection!';
-    }
-    else{
-        echo "we're connected" . "<br>";
-
-        $query = "SELECT * FROM users ";
-    
-        $queryResult = mysqli_query($connection, $query);
-        
-        if(!$queryResult){
-            die('Query FAILED' . mysqli_error($queryResult));
-        }
-    }
-
-
-?>
+<?php include 'db.php';?>
+<?php include 'functions.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,24 +15,19 @@
 
         <div class="container">
             <div class="col-sm-6">
-                <?php
+                <h1 style="text-align: center;">Read</h1>
+                <?php readAll(); ?>
+                <form action="login_create.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="create" value="Create">
+                </form>
 
-                // while($row = mysqli_fetch_row($queryResult)){
-                //     print_r($row);
-                // }
+                <form action="login_update.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="update" value="Update">
+                </form>
 
-                while($row = mysqli_fetch_assoc($queryResult)){
-
-                    ?>
-                <pre>
-                <?php
-                print_r($row);
-                ?>
-            </pre>
-                <?php
-                }
-                ?>
-
+                <form action="login_delete.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="delete" value="Delete">
+                </form>
 
             </div>
         </div>

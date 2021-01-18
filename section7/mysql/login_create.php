@@ -1,41 +1,6 @@
-<?php
-
-$username;
-$password;
-
-if(isset($_POST['submit'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $connection = mysqli_connect('localhost','root','','loginapp');
-
-    if($connection){
-        if($username && $password){
-            
-            echo 'Yes we are connected'.'<br><br>';
-            
-            $query = "INSERT INTO users(username,password) ";
-            $query .= "VALUES ('$username','$password')";
-
-            $queryResult = mysqli_query($connection, $query);
-
-            if(!$queryResult){
-                die('Query FAILED' . mysqli_error($queryResult));
-            }
-            elseif($queryResult){
-                echo "Query successfully run";
-            }
-        }
-        else{
-            echo 'Username or password not set';
-        }
-    }
-    else{
-        die('Database connection failed');
-    }
-}
-
-?>
+<?php include 'functions.php';?>
+<?php include 'db.php';?>
+<?php createRow();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +16,7 @@ if(isset($_POST['submit'])){
 
         <div class="container">
             <div class="col-sm-6">
+                <h1 style="text-align: center;">Create</h1>
                 <form class="form-control" action="login_create.php" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -63,6 +29,19 @@ if(isset($_POST['submit'])){
                     </div>
                     <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                 </form>
+
+                <form action="login_read.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="read" value="Read">
+                </form>
+
+                <form action="login_update.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="update" value="Update">
+                </form>
+
+                <form action="login_delete.php" method="post">
+                    <input class="btn btn-primary" type="submit" name="delete" value="Delete">
+                </form>
+
             </div>
         </div>
 
