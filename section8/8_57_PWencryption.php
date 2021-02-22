@@ -5,7 +5,7 @@
 
 <!-- crypt() will create a weak password without the 'salt' -->
 
-<!-- passwrod_hash() uses a strong has, generates a strong salt -->
+<!-- passwrod_hash() uses a strong hash, generates a strong salt -->
 
 <!-- go to functions.php -->
 
