@@ -10,6 +10,15 @@
 <body>
 
     <?php
+    // Types of sort functions:
+    // sort() - sort arrays in ascending order
+    // rsort() - sort arrays in descending order
+    // asort() - sort associative arrays in ascending order, according to the value
+    // ksort() - sort associative arrays in ascending order, according to the key
+    // arsort() - sort associative arrays in descending order, according to the value
+    // krsort() - sort associative arrays in descending order, according to the key
+
+
     $list = [343, 423, 4234, 324, 362, 346, 34];
 
     echo $list . '<br>';

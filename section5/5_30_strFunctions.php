@@ -20,7 +20,7 @@
         echo strtolower($string) . "<br>";
 
         // just like echo 
-        // The major differences to echo are that print only accepts a single argument and always returns 1.
+        // The major differences to echo and print are that print only accepts a single argument and always returns 1.
         
         print ($string) . "<br>";
         echo print ($string) . "<br>";

@@ -7,7 +7,7 @@
     <title>Associative Arrays</title>
 </head>
 
-<body style="font-size: 2em;">
+<body style="font-size: 1.5em;">
 
     <?php
 
@@ -24,10 +24,18 @@
 
     // $anArray = array("first Key" => "first value", "Second Key" => "Second Value",...)
 
+    $fullName1 = $names['first_name'] . ' ' . $names['last_name'];
+
+    
     print_r($names);
     echo '<br>';
-    echo $names['first_name'] . ' ' . $names['last_name'];
+    echo $fullName1;
+    echo '<br>';
 
+    // Associative arrays cannot be called by their index numerals because it doesn't exist
+    $fullName2 = $names[0] . ' ' . $names[1];
+    echo $fullName2;
+    echo '<br>';
 
     ?>
 
