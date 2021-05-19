@@ -1,6 +1,11 @@
+<!-- lecture 48 -->
 <?php
-    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-    if(!$connection){
-        die('Connection FAILED' . mysqli_error($connection));
-    }
+
+$connection = mysqli_connect('localhost','root','','logindb');
+
+if(!$connection){
+    die("<h3 style='color: red;'>Cannot connect to database!</h3>");
+}
+
+
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// All HTML has been deleted from this file, since it's just a validation page apparently 
+// All HTML has been deleted from this file, since it's just a validation page 
 
 if(isset($_POST['submit'])){
     $names = array('AhShin', 'student','Peter', 'Samid', 'Parker', 'Tim', 'Ome', 'Christina', 'staff');
@@ -10,8 +10,8 @@ if(isset($_POST['submit'])){
     $lenPW = strlen($password);
     
     $minCharID = 4;
-    $minCharPW = 6;
     $maxCharID = 15;
+    $minCharPW = 6;
     $maxCharPW = 20;
 
 
