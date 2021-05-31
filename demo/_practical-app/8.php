@@ -28,14 +28,16 @@
 
 	*/
 	
-	$password = 'randomstring';
-	$hashFormat = '16randcharacters';
-	$salt = '$5$9000$';
+	$pw = 'someRandomString1590';
+	$hashFormat = '$2y$11$';
+	$salt = 'fhU9ehfao34uh2h1gG1oE3';
 
 	$hashedSalt = $hashFormat . $salt;
+	echo $hashedSalt . '<br>';
 
-	echo crypt($password, $hashedSalt);
+	$spw = crypt($pw, $hashedSalt);
 
+	echo $spw;
 	?>
 
 

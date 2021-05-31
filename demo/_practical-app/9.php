@@ -28,15 +28,30 @@
 
 		Step 3 - Start a session and set it to value, any value you want.
 	*/	
-	$input = random_int(0, 100);
-
-	print_r($_GET);
 
 
-	
+    $name= 'testCookie';
+    $value= 19900719;
+    $expiration= time() + 60*60*24*7;
+    setcookie($name,$value,$expiration);
+
+	session_start();
+    $_SESSION['birthday'] = $value;
 	?>
+    
+    <a href="9.php?value=19931226">Click Here</a>
+    <br>
+    <a href="9.php">Initialise</a>
 
-        <a href="9.php?value=<?php echo $input ?>">Click here</a>
+    <?php
+    if(isset($_GET['value'])){
+        $_SESSION['birthday'] = $_GET['value'];
+        echo $_SESSION['birthday'];
+    }
+    else{
+        echo $_SESSION['birthday'];
+    }
+    ?>
 
     </article>
     <!--MAIN CONTENT-->

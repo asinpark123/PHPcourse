@@ -1,8 +1,12 @@
 <?php
 include 'db.php';
 
+// we created a function to run our queries, code straight from login_update.php
+
 function showCred(){
     global $connection;
+    // make sure $connection is global, use global to plug in variables from other places
+    // pulls all data from users table
     $query = "SELECT * FROM users ";
     $queryResult = mysqli_query($connection, $query);
     
@@ -23,12 +27,13 @@ function updateCred(){
         $username = $_POST['username'];
         $password = $_POST['password'];
         $id = $_POST['id'];
-        
+
+        // we've already pulled the data from DB, time to update
         $query = "UPDATE users SET ";
         $query .= "username = '$username', ";
         $query .= "password = '$password' ";
         $query .= "WHERE id = $id";
-
+        // no quote marks around $id because it's an INTeger
         $queryResult = mysqli_query($connection, $query);
         if(!$queryResult){
             mysqli_error($queryResult);
@@ -46,6 +51,7 @@ function deleteCred(){
         global $connection;
         $id = $_POST['id'];
 
+        // we've already pulled the data from DB, time to delete
         $query = "DELETE FROM users ";
         $query .= "WHERE id = $id";
         $queryResult = mysqli_query($connection, $query);
@@ -71,21 +77,6 @@ function createRow(){
         if($connection){
             if($username && $password){
                                 
-                // we must senatise our inputs before allowing them to run/submit
-                // use mysqli_real_escape_string($connection, $stringVar); feed the senatised values back into their respective variables
-                $username = mysqli_real_escape_string($connection, $username);
-                $password = mysqli_real_escape_string($connection, $password);
-                
-                // create $hashFormat
-                // $hashFormat = "$format$numberOfTimesToRun$";
-                $hashFormat = "$2y$10$";
-                // then create $salt, $salt string must be at least 22 char long
-                $salt = "iusesomecrazystrings22";
-                // concatinate $hashFormat and $salt
-                $hashedSalt = $hashFormat . $salt;
-                // now use crypt(); to encrypt PW
-                $password = crypt($password, $hashedSalt);
-                
                 $query = "INSERT INTO users(username,password) ";
                 $query .= "VALUES ('$username','$password')";
 
@@ -125,6 +116,6 @@ function readAll(){
 </pre>
 <?php
     }
-
+    
 }
 ?>

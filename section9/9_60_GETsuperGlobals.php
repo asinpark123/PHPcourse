@@ -3,10 +3,11 @@ $id = 10;
 // we wanted to have a look at how to edit the variable via URL
 print_r($_GET); 
 
-// http://localhost/phpcourse/section9/9_60_GETsuperGlobals.php?id=10&source=reports
+// http://localhost/phpcourse/section9/rerun/9_60_GETsuperGlobals.php?id=10&source=reports
+// the above link will echo => Array ( [id] => 10 [source] => reports )
 
-// ? separates the parameter
-// & adds variables into the same parameter
+// ? separates the parameters
+// & adds variables into the same parameters
 
 ?>
 
@@ -22,13 +23,14 @@ print_r($_GET);
 
     <body>
 
-        <!-- we have created a button here that will assign 100 to the variable 'id' and send it to the $_GET super global -->
+        <!-- we have created a button here that will assign 100 to the variable 'id' and send it to the $_GET super global via URL -->
+        <!-- notice that we don -->
         <a href="9_60_GETsuperGlobals.php?id=100">Click Here</a>
 
         <br><br><br>
 
         <!-- Below does the same but dynamically -->
-        <a href="9_60_GETsuperGlobals.php?id=<?php echo $id ?>">Click again</a>
+        <a href="9_60_GETsuperGlobals.php?id=<?php echo $id; ?>">Click again</a>
 
     </body>
 

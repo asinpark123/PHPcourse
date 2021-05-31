@@ -14,69 +14,89 @@
 
 
     <article class="main-content col-xs-8">
-        <form action="7.php" method="post">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" name="submit" value="Submit">
-        </form>
-
-        <form action="7.php" method="post">
-            <input type="submit" name="read" value="Read">
-        </form>
 
         <?php  
 
-	/*  Step 1 - Create a database in PHPmyadmin
+		/*  Step 1 - Create a database in PHPmyadmin
 
-		Step 2 - Create a table like the one from the lecture
+			Step 2 - Create a table like the one from the lecture
 
-		Step 3 - Insert some Data
+			Step 3 - Insert some Data
 
-		Step 4 - Connect to Database and read data
+			Step 4 - Connect to Database and read data
 
-	*/
-	
-	$connection = mysqli_connect('localhost', 'root', '', 'practice');
-	if(!$connection){
-		die("Connection FAILED" . mysqli_error($connection));
-	}
-	else{
-		if(isset($_POST['submit'])){
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			$query = "INSERT INTO users(username, password) ";
-			$query .= "VALUES ('$username','$password') ";
-			
-			$queryResult = mysqli_query($connection, $query);
-			if(!$queryResult){
-				die('Query FAILED' . mysqli_error($queryResult));
-			}
-			else{
-				echo 'Query SUCCESSFUL';
-			}
-		}
-		elseif(isset($_POST['read'])){
-			$query = "SELECT * FROM users ";
-			$queryResult = mysqli_query($connection, $query);
-			while($row = mysqli_fetch_assoc($queryResult)){
-				?>
+		*/
 
-        <pre>
-				<?php
-				print_r($row);
-				?>
-				</pre>
-        <?php
-			}
+		$connection = mysqli_connect('localhost','root','','test7');
+		$readQuery = "SELECT * FROM users ";
+		$readResult = mysqli_query($connection, $readQuery);
+		
+		if(!$connection){
+			die("Failed to connect to the database");
 		}
 		
-	}
-	
-	
+		if(isset($_POST['Array'])){
+			echo "";
+		}
+
+		elseif (isset($_POST['submit'])){
+			$pw = $_POST['password'];
+			$id = $_POST['username'];
+
+			if(!$pw||!$id){
+				echo "Please enter your Username and Password!";
+			}
+			
+			$query = "INSERT INTO users(username,password)";
+			$query .= "VALUES ('$id','$pw')";
+			
+			$result = mysqli_query($connection, $query);
+			if(!$result){
+				die("Query has failed: " . mysqli_error($connection));
+			}
+		}
+
+		elseif (isset($_POST['read'])){
+			
+			if(!$readResult){
+				die("Query has failed: " . mysqli_error($connection));
+			}
+			
+
 	?>
 
+	<div class="container" style="width: 100%;">
+		<h1>Connect to DB</h1>
+		<?php
+		if($readResult){
+			while($row = mysqli_fetch_assoc($readResult)){
+		?>
+	<pre>
+		<?php
+			print_r($row);
+		?>
+	</pre>
+		<?php
+			}
+		}
+		elseif(!$readResult){
+			echo "No data";
+		}
+		}
 
-
+		?>
+		<form action="7.php" method="POST">
+			<label for="username">Username</label>
+			<input type="text" name="username">
+			<br>
+			<label for="password">Password</label>
+			<input type="password" name="password">
+			<br>
+			<br>
+			<input type="submit" name="submit">	
+			<input type="submit" name="read" value="Read">	
+		</form>
+	</div>
 
 
 

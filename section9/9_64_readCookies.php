@@ -3,10 +3,6 @@ $name = "AhShin";
 $value = 100;
 $expiration = time() + (60*60*24*7);
 
-// Info about the user in cookies are set in super global $_COOKIE;
-// We set cookies using setcookie($name,$value,$expiration);
-// Parameter for time(); is seconds. (60*60*24*7) == 7 days
-
 setcookie($name,$value,$expiration);
 
 
@@ -20,13 +16,18 @@ setcookie($name,$value,$expiration);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Setting Cookies</title>
+        <title>Read Cookies</title>
     </head>
 
     <body>
+        <h1>Read Cookies</h1>
         <?php
+        // We want to obtain information of a specific cookie
+        // Remember a cookie is essentially an associative array
+        // isset($_COOKIE['AhShin']) checks whether the cookie named 'AhShin' was set
             if(isset($_COOKIE['AhShin'])){
                 $someOne = $_COOKIE['AhShin'];
+                echo $someOne;
             }
             else{
                 $someOne='';

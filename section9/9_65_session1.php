@@ -1,15 +1,21 @@
 <?php
-// Sessions - create a file in your server using a function
-// set a cookie in your browser that references that file
-// usage information is saved in your server, therefore you can store a lot more information
+// Sessions - create a file in the site host server using a function
+// set a cookie in your browser that references to that file
+// usage information is saved in your server, unlike cookies where they save to the browser
+// therefore you can store a lot more information in a session
 
 // Start the session using session_start();
+// This needs to be present in every page that intends on using sessions
 session_start();
-// this will automatically create cookies that references the file location of the session data
-// NAME: PHPSESSID , CONTENT: hfocld42sa3op07kt99orbvj7i
 
+// this will automatically create cookies that references the file location of the session data
+// NAME: PHPSESSID , CONTENT: hfocld42sa3op07kt99orbvj7i <= will change each session
+
+// Below you can see that session information is saved as an associative array like $_GET and $_POST
+// We can pull information from the session across pages
 $_SESSION['greeting'] = 'Hello world';
 
+// You should be able to see the value transfer over to session2.php page
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +29,7 @@ $_SESSION['greeting'] = 'Hello world';
     </head>
 
     <body>
-
+    <h1>Session 1</h1>
     </body>
 
 </html>
