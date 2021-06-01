@@ -1,7 +1,7 @@
 <?php
 class Car{
 
-    // Defining properties of a Car
+    // Defining properties of the class Car
     var $wheels = 4;
     var $hood = 1;
     var $engine = 1;
@@ -49,6 +49,14 @@ echo $bmw->wheels;
 echo '<br>';
 
 echo $truck->wheels = 10;
+echo '<br>';
+
+$truck->moreDoors();
+echo $truck->doors . ' doors';
+echo '<br>';
+
+$truck->lessDoors();
+echo $truck->doors . ' doors';
 echo '<br>';
 
 ?>
