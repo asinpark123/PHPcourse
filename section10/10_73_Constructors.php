@@ -9,7 +9,7 @@ class Car{
     var $engine = 1;
     var $doors = 4;
 
-    // Below is how you create a construct, which will execute every time you make an instance
+    // Below is how you create a constructor, which will execute every time you make an instance
     function __construct(){
         echo $this->wheels = 8 . '<br>';
     }

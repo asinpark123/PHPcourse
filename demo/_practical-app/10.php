@@ -22,12 +22,35 @@
 
 		Step 5: Instantiate the class / create object and call it pitbull
 
-Step 6: Call the method ShowAll
+		Step 6: Call the method ShowAll
 
-	
-
-		
 	*/
+
+
+	class Dog{
+		var $eyeColor;
+		var $furColor;
+		var $tailLength;
+		protected $legs = 4;
+
+		function __construct(){
+			$this->eyeColor = 'brown';
+			$this->furColor = 'black';
+			$this->tailLength = '15cm';
+		}
+
+		function showAll(){
+			echo $this->eyeColor . '<br>';
+			echo $this->furColor . '<br>';
+			echo $this->tailLength . '<br>';
+		}
+	}
+	
+	$pitbull = new Dog;
+
+	echo $pitbull->showAll();
+	
+	print_r(get_object_vars($pitbull));
 	
 	?>
 

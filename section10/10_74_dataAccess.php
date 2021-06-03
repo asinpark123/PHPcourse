@@ -5,7 +5,7 @@ class Car{
 
     public $wheels = 4;     // public - available to the whole program
     protected $hood = 1;    // protected - only available to this class or extended classes or subclasses
-    private $engine = 1;    // private - only available within this class
+    private $engine = 1;    // private - only available from within this class
     var $doors = 4;         
 
     function moveWheels(){
@@ -54,4 +54,6 @@ echo $semi->engine;         // Will catch an error: 'Undefined property: Semi::$
 
 echo $bmw->hood;            // Will catch an error: 'Uncaught Error: Cannot access protected property Car...'
 
+// You can use a built in function print_r(get_object_vars($INSTANCE));
+print_r(get_object_vars($bmw));     // but this also won't work since it's trying to access protected data from outside of the class
 ?>

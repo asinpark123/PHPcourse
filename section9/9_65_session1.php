@@ -1,5 +1,5 @@
 <?php
-// Sessions - create a file in the site host server using a function
+// Sessions - create a file in the host server using the function session_start();
 // set a cookie in your browser that references to that file
 // usage information is saved in your server, unlike cookies where they save to the browser
 // therefore you can store a lot more information in a session

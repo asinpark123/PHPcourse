@@ -4,7 +4,6 @@ class Car{
     function moveWheels(){
         echo "wheels move";
     }
-
 }
 
 // use class_exists(CLASS); to check if class exists
