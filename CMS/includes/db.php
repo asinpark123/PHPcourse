@@ -21,13 +21,14 @@ $db['db_pw'] = '';
 $db['db_name'] = 'cms';
 
 foreach($db as $key => $value){
-    // use function define(); to create constants
+    // use function define(); to create constants and change to UPPERCASE
+    // each of the array elements will now be defined as Constants
     define(strtoupper($key),$value);
 }
 
 $connection1 = mysqli_connect(DB_HOST, DB_ID, DB_PW, DB_NAME);
-if($connection1){
-    echo "connected to the database!";
+if(!$connection1){
+    echo "<strong><span style = 'color: red;'>Cannot connect to the database!</span></strong>";
 }
 
 
