@@ -15,11 +15,13 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
 
             <?php
-
             $query = "SELECT * FROM posts";
-
             $SEND_posts_query = mysqli_query($connection1, $query);
 
             while($row = mysqli_fetch_assoc($SEND_posts_query)){
@@ -29,12 +31,6 @@
                 $post_image = $row['post_image'];
                 $post_content = $row['post_content'];
             ?>
-            
-
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
 
                 <!-- First Blog Post -->
                 <h2>

@@ -1,7 +1,6 @@
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
 
-            
                 <!-- Blog Search Well -->
                 <div class="well">
                     <h4>Blog Search</h4>
@@ -17,43 +16,31 @@
                     </form> <!-- search form -->
                 </div>
                                 <!-- Blog Categories Well -->
+                <?php $query = "SELECT * FROM categories";
+                $SEND_category_query = mysqli_query($connection1, $query);
+                ?>
+
                 <div class="well">
                     <h4>Blog Categories</h4>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
+                <?php
+                while($row = mysqli_fetch_assoc($SEND_category_query)){
+                    $cat_title = $row['cat_title'];
+                    echo "<li style='color: #9d9d9d;'><a href='#'>{$cat_title}</a></li>";
+                }
+                ?>
                             </ul>
                         </div>
                         <!-- /.col-lg-6 -->
                     </div>
                     <!-- /.row -->
                 </div>
+                
 
                 <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
+                <?php include "widgets.php" ?>
+
 
             </div>
