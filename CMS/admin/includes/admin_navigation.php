@@ -37,17 +37,17 @@
                     <li>
                         <a href="../index.php"><i class="fa fa-fw fa-home"></i> Main Home</a>
                     </li>
-                    <li>
+                    <li class="">
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#BSElements"><i class="fa fa-fw fa-newspaper-o"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="BSElements" class="collapse">
                             <li>
-                                <a href="#">View All Posts</a>
+                                <a href="posts.php">View All Posts</a>
                             </li>
                             <li>
-                                <a href="#">Add Posts</a>
+                                <a href="posts.php?source=add_post">Add Posts</a>
                             </li>
                         </ul>
                     </li>
@@ -62,7 +62,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="index.php"><i class="fa fa-fw fa-file"></i> Comments</a>
                     </li>
                     <li>

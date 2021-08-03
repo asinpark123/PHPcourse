@@ -45,6 +45,11 @@ function delete_cat(){
     }
 }
 
-
+function confirm_query($send_query){
+    global $connection1;
+    if(!$send_query){
+        die("Query Failed " . mysqli_error($connection1));
+    }
+}
 
 ?>
