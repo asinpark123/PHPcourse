@@ -3,7 +3,6 @@ if(isset($_GET['p_id'])){
     $p_id = $_GET['p_id'];
     $query = "SELECT * FROM posts WHERE post_id = {$p_id}";
     $send_get_post_by_id = mysqli_query($connection1,$query);
-    confirm_query($send_get_post_by_id);
     while($row = mysqli_fetch_assoc($send_get_post_by_id)){
         $post_id = $row['post_id'];
         $post_category_id = $row['post_category_id'];
@@ -15,7 +14,8 @@ if(isset($_GET['p_id'])){
         $post_tags = $row['post_tags'];
         $post_comment_count = $row['post_comment_count'];
         $post_status = $row['post_status'];
-    
+    }
+}
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
@@ -26,22 +26,7 @@ if(isset($_GET['p_id'])){
     
     <div class="form-group">
         <label for="post_category">Post Category Id</label>
-        <select name="post_category_id" id="">
-            <?php 
-            
-            $query = "SELECT * FROM posts ";
-            $send_get_all_query = mysqli_query($connection1, $send_get_all_query);
-            confirm_query($send_get_all_query);
-
-            while($row = mysqli_fetch_assoc($send_get_all_query)){
-                $post_id = $row['post_id'];
-                // left off from here
-            }
-            
-            ?>
-        </select>
         <input type="text" class="form-control" name="post_category_id" value="<?php echo $post_category_id; ?>"/>
-
     </div>
     
     <div class="form-group">
@@ -70,11 +55,7 @@ if(isset($_GET['p_id'])){
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_post" value="Publish Post">
+        <input class="btn btn-primary" type="submit" name="create_post" value="Update Post">
     </div>
 </form>
 
-<?php 
-    }
-} 
-?>
